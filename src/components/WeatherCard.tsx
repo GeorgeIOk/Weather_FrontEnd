@@ -62,7 +62,7 @@ const ExchangeCard: React.FC = () => {
               isLoading={loadingState}
               type="submit"
             >
-              Search
+              Exchange Rate
             </Button>
           </div>
         </form>
