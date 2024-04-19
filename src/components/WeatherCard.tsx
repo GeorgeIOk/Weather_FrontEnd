@@ -71,12 +71,12 @@ const ExchangeCard: React.FC = () => {
       {data ? (
         <CardBody>
           <div className="flex flex-col items-center">
-            <h1 className="text-3xl font-bold">{data.currency}</h1>
+            <h1 className="text-3xl font-bold">Exchange rate of {data.currency} : </h1>
            
             <p className="text-lg">Bangladesh: {data.BDT} TK</p>
-            <p className="text-lg">India: {data.IRS} Rupee </p>
-            <p className="text-lg">Pakistan: {data.PKR} Rupee</p>
-            <p className="text-lg">Canada: {data.CAD} $ </p>
+            <p className="text-lg">India: {data.IRS} Rs </p>
+            <p className="text-lg">Pakistan: {data.PKR} Rs</p>
+            <p className="text-lg">Canada: {data.CAD} CAD </p>
           </div>
         </CardBody>
       ) : (
