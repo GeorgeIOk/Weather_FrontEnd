@@ -73,7 +73,7 @@ const ExchangeCard: React.FC = () => {
           <div className="flex flex-col items-center">
             <h1 className="text-3xl font-bold">Exchange rate of {data.currency} : </h1>
            
-            <p className="text-lg">Bangladesh: {data.BDT} TK</p>
+             <p className="text-lg">Bangladesh: {data.BDT} TK</p>
             <p className="text-lg">India: {data.IRS} Rs </p>
             <p className="text-lg">Pakistan: {data.PKR} Rs</p>
             <p className="text-lg">Canada: {data.CAD} CAD </p>
