@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 
-const API_URL = "https://ominous-orbit-r47rr76j6j6wcpqvx-3000.app.github.dev/api";
+const API_URL = "https://effective-garbanzo-g4x55xrgr9jjhvx9r-3000.app.github.dev/api";
 
 export const getExchangeRate = async (currency: string): Promise<ExchangeRate> => {
   return new Promise<ExchangeRate>((resolve, reject) => {
@@ -8,7 +8,7 @@ export const getExchangeRate = async (currency: string): Promise<ExchangeRate> =
       .get(`${API_URL}/${currency}`)
       .then((res) => {
         resolve({
-          currency: currency,
+          currency: res.data.Exchange,
           BDT: res.data.BDT,
           IRS: res.data.IRS,
           PKR: res.data.PKR,
