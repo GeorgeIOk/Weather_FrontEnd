@@ -1,7 +1,7 @@
-interface WeatherData {
-  city: string;
-  temperature: number;
-  humidity: number;
-  wind: number;
-  rain: number;
+interface ExchangeRate {
+  currency: string;
+  BDT: number;
+  IRS: number;
+  PKR: number;
+  CAD:number;
 }

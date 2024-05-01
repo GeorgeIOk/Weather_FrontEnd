@@ -8,20 +8,19 @@ import {
   Button,
 } from "@nextui-org/react";
 import { useState } from "react";
-import { TiWeatherDownpour, TiWeatherSunny } from "react-icons/ti";
-import { getWeatherData } from "../api/actions";
+import { getExchangeRate } from "../api/actions";
 
-const WeatherCard: React.FC = () => {
-  const [data, setData] = useState<WeatherData>();
+const ExchangeCard: React.FC = () => {
+  const [data, setData] = useState<ExchangeRate>();
   const [loadingState, setLoadingState] = useState(false);
-  const [city, setCity] = useState("");
+  const [currency, setCurrency] = useState("");
   const [error, setError] = useState("");
 
   const handleSearch = () => {
-    console.log("Fetching Weather Data...");
-    console.log(city);
+    console.log("Fetching  Data...");
+    console.log(currency);
     setLoadingState(true);
-    getWeatherData(city)
+    getExchangeRate(currency)
       .then((res) => {
         setError("");
         if (res) {
@@ -49,12 +48,12 @@ const WeatherCard: React.FC = () => {
         >
           <div className="flex flex-col w-full p-2 space-y-4">
             <Input
-              id="cityname"
+              id="currencyname"
               type="text"
-              label="City"
-              value={city}
+              label="Currency"
+              value={currency}
               onChange={(e) => {
-                setCity(e.target.value);
+                setCurrency(e.target.value);
               }}
             />
             <Button
@@ -63,7 +62,7 @@ const WeatherCard: React.FC = () => {
               isLoading={loadingState}
               type="submit"
             >
-              Search
+              Exchange Rate
             </Button>
           </div>
         </form>
@@ -72,26 +71,18 @@ const WeatherCard: React.FC = () => {
       {data ? (
         <CardBody>
           <div className="flex flex-col items-center">
-            <h1 className="text-3xl font-bold">{data.city}</h1>
-            {data.temperature > 20 ? (
-              <div>
-                <TiWeatherSunny className="w-36 h-36" />
-              </div>
-            ) : (
-              <div>
-                <TiWeatherDownpour className="w-36 h-36" />
-              </div>
-            )}
-            <p className="text-3xl font-bold">{data.temperature}°C</p>
-            <p className="text-lg">Humidity: {data.humidity}%</p>
-            <p className="text-lg">Wind: {data.wind} km/h</p>
-            <p className="text-lg">Rain: {data.rain} %</p>
+            <h1 className="text-3xl font-bold">{data.currency} </h1>
+           
+             <p className="text-lg">Bangladesh: {data.BDT} TK</p>
+            <p className="text-lg">India: {data.IRS} Rs </p>
+            <p className="text-lg">Pakistan: {data.PKR} Rs</p>
+            <p className="text-lg">Canada: {data.CAD} CAD </p>
           </div>
         </CardBody>
       ) : (
         <CardBody>
           <div className="flex flex-col items-center">
-            <p className="text-xl font-bold">Please enter a city</p>
+            <p className="text-xl font-bold">This page only can exchange GBP, USD and EURO</p>
           </div>
         </CardBody>
       )}
@@ -111,4 +102,4 @@ const WeatherCard: React.FC = () => {
   );
 };
 
-export default WeatherCard;
+export default ExchangeCard;
