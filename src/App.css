@@ -1,3 +1,23 @@
 .header {
   text-align: center;
 }
+
+body {
+  color: #ccc;
+}
+
+.navbar {
+  background-color: #333;
+  color: #ccc;
+}
+
+.initial-search {
+  background-color: #333;
+  color: #ccc;
+}
+
+.search-result {
+  animation: slideIn 0.5s ease forwards;
+  background-color: #333;
+  color: #ccc;
+}

@@ -3,43 +3,113 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --primary-color: #3498db;
+  --secondary-color: #000;
+  --text-color: #ccc; /* Gray */
+  --background-color: #121212;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #ffffff;
-
+  color: var(--text-color);
+  background-color: var(--background-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-#root {
-  height: 100%;
-}
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: #6b7280 #374151;
-}
-body > #root {
-  height: 100vh;
-  width: 100vw;
-}
-
-body {
   margin: 0;
   display: flex;
   place-items: center;
   min-height: 100vh;
   width: 100vw;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-color);
 }
 
+#root {
+  height: 100%;
+}
 
+html, body, #root {
+  height: 100%;
+}
 
+body > #root {
+  height: 100vh;
+  width: 100vw;
+}
 
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+body::before {
+  background-image: radial-gradient(circle, #ffffff 20%, #f7f7f7 100%);
+}
+
+body::after {
+  background-image: url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+  opacity: 0.2;
+}
+
+/* Added some background patterns */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+  opacity: 0.2;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/p5.png');
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Update scrollbar colors */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+/* Update search result animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.search-result {
+  animation: slideIn 0.5s ease forwards;
+}

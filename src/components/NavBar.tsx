@@ -1,40 +1,33 @@
+import React from "react";
 import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import { MdApi } from "react-icons/md";
 
 const NavBar = () => {
   return (
-    <Navbar className="bg-slate-100 h-16">
+    <Navbar className="bg-blue-500 text-white h-16 shadow-md">
       <NavbarBrand>
-        <MdApi className="w-8 h-8 text-primary" />
-        <p className="font-bold text-inherit">Weather API</p>
+        <MdApi className="w-8 h-8 mr-2" />
+        <p className="font-bold text-lg">Weather API</p> {/* Adjusted font size */}
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        {/* <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem> */}
+      <NavbarContent className="hidden sm:flex gap-4 items-center">
+        <a href="#" className="text-white hover:text-gray-200"> {/* Styled anchor tag */}
+          Features
+        </a>
+        <a href="#" className="text-white hover:text-gray-200" aria-current="page"> {/* Styled anchor tag */}
+          Customers
+        </a>
+        <a href="#" className="text-white hover:text-gray-200"> {/* Styled anchor tag */}
+          Integrations
+        </a>
       </NavbarContent>
-      {/* <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent> */}
+      <NavbarContent className="flex justify-end items-center gap-4">
+        <a href="#" className="text-white hover:text-gray-200"> {/* Styled anchor tag */}
+          Login
+        </a>
+        <a href="#" className="text-white hover:text-gray-200"> {/* Styled anchor tag */}
+          Sign Up
+        </a>
+      </NavbarContent>
     </Navbar>
   );
 };
